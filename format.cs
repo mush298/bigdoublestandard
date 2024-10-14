@@ -117,7 +117,12 @@ if (exp >= 3000)
         // Debugging: Log if divisor2 is zero
         Debug.Log("exponent is now 0, Skipping prefix2 calculation.");
     }
-    ret = prefix1 + prefix2;
+    if (exp >= 3000003) {
+        ret = prefix1 + prefix2;
+    } else {
+        ret = mantissa + prefix1 + prefix2;
+    }
+
 }
 else {
     int index1 = (int)((exp / 3) % 10);
