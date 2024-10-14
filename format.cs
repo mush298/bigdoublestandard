@@ -18,7 +18,7 @@ public class Format : MonoBehaviour
         foreach (var value in testValues)
         {
             string abbreviation = GetAbbreviation(value);
-            Debug.Log($"Value: {value} => Abbreviation: {abbreviation}");
+           
         }
     }
 
@@ -134,6 +134,9 @@ ret += mantissa.ToString() + prefixes[0][index1] + prefixes[1][index2] + prefixe
     // Remove trailing hyphen if it exists
     if (ret.EndsWith("-")) ret = ret.Substring(0, ret.Length - 1);
 
+    if (ret == "U") ret = "M";
+    if (ret == "D") ret = "B";
+
     // Handle specific replacements
     return ret.Replace("UM", "M")
               .Replace("UNA", "NA")
@@ -143,3 +146,4 @@ ret += mantissa.ToString() + prefixes[0][index1] + prefixes[1][index2] + prefixe
 }
 
 }
+
